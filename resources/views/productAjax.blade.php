@@ -98,6 +98,13 @@
 </div>
 
 <script type="text/javascript">
+    function resetFormErrors(){
+        let items =  $('#productForm').find('.error');
+        items.map((key,item) => {
+            $(item).html('')
+        })
+    }
+
     $(function () {
 
       /*------------------------------------------
@@ -136,6 +143,7 @@
       --------------------------------------------
       --------------------------------------------*/
       $('#createNewProduct').click(function () {
+          resetFormErrors()
           $('#saveBtn').val("create-product");
           $('#product_id').val('');
           $('#productForm').trigger("reset");
@@ -162,6 +170,9 @@
             if(data.image){
                 $('.image_area').html("<img src='/storage/"+data.image+"' width='250'/>");
             }
+
+            //reset errors
+            resetFormErrors()
         })
       });
 
@@ -175,10 +186,8 @@
           $(this).html('Sending..');
 
           var fd = new FormData(document.getElementById('productForm') );
-          let items =  $('#productForm').find('.error');
-            items.map((key,item) => {
-                $(item).html('')
-            })
+          
+          resetFormErrors()
 
           $.ajax({
             data: fd,

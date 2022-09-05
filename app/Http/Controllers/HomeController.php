@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function getFeaturedProducts(Request $request){
         $uri = $request->path();
-        $results = Product::orderBy('id')->paginate(10);
+        $results = Product::with('getCategory')->orderBy('id')->paginate(10);
 
         $products = '';
         if ($request->ajax()) {
