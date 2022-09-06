@@ -29,6 +29,7 @@ class HomeController extends Controller
         $products = '';
         if ($request->ajax()) {
             foreach ($results as $product) {
+                //Single View pattern
                 $products.= view('products.single-product',compact('product'));
             }
             return $products;

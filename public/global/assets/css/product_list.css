@@ -151,3 +151,40 @@ a:hover {
 .error{
     color:#fe302f;
 }
+
+
+ .dataTables_paginate .pagination {
+    display: inline-block;
+  }
+  
+ .dataTables_paginate .pagination li {
+    float: left;
+    text-decoration: none;
+  }
+  
+ .dataTables_paginate .pagination li.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+ .dataTables_paginate .pagination li:hover:not(.active) {background-color: #ddd;}
+
+ .dataTables_wrapper .dataTables_paginate .paginate_button{
+    box-sizing: border-box;
+    padding: 0px !important;
+    display: inline-block;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #333 !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+ }
+
+ .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    color: white !important;
+    border: 0px !important;
+    background: 'none';
+
+ }

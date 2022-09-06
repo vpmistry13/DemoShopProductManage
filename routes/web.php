@@ -17,17 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'getFeaturedProducts']);
+Route::get('/', [HomeController::class, 'getFeaturedProducts']); // Public Product listing
+Route::resource('products-manage', ProductAjaxController::class); // Manage product session protected by middleware
 
-// Route::get('/', function (Request $request) {
-//     $uri = $request->path();
-//     $products = Product::latest()->get();
-//     return view('welcome',compact(['uri','products']));
-// });
+Auth::routes(); //Authentication default routes
 
-
-Route::resource('products-manage', ProductAjaxController::class);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

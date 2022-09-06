@@ -28,7 +28,7 @@ class ProductAjaxController extends Controller
      */
     public function index(Request $request)
     {
-        //
+        //Listing products
         if ($request->ajax()) {
 
             $data = Product::with('getCategory')->latest()->get();
@@ -70,14 +70,14 @@ class ProductAjaxController extends Controller
      */
     public function store(Request $request)
     {
-
+        //Required Field validation
         $requiredField = array();
         $requiredField['name'] = 'required|min:3|max:50';
         $requiredField['detail'] = 'required|min:15|max:250';
         $requiredField['price'] = 'required|integer|max:10000|min:0';
         $requiredField['categories_id']= 'required|exists:categories,id|integer';
 
-        if(!$request->product_id){
+        if(!$request->product_id){ //optional for update method
             $requiredField['image'] = 'required|image|mimes:jpg,jpeg,png|max:2048';
         }
 
@@ -100,7 +100,7 @@ class ProductAjaxController extends Controller
             $data['image'] = $image_path;
         }
 
-        //
+        //Add or Update data 
         Product::updateOrCreate([
             'id' => $request->product_id
         ],
@@ -119,17 +119,6 @@ class ProductAjaxController extends Controller
     {
         $product = Product::find($id);
         return response()->json($product);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -154,7 +143,7 @@ class ProductAjaxController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Delete the product.
         Product::find($id)->delete();
         return response()->json(['success'=>'Product deleted successfully.']);
     }
