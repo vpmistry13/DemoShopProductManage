@@ -7,19 +7,25 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Minimum PHP Requirement
+First and most importantly, Laravel 9 requires the latest PHP 8 and PHPUnit 8 for testing. That’s because Laravel 9 will be using the newest Symfony v6.0, which also requires PHP 8.
+
+PHP 8 has significant improvements, and features, from the JIT compile to constructor property promotion. You can explore the different PHP versions benchmarks and learn how to upgrade to the latest PHP 8 here on our blog.
+
 ## Setup Instruction
 1) Get fresh clone from master branch.
 2) once cloned done go to project directory from terminal.
-3) **composer install**
-4) npm run && npm run build 
-5) php artisan migrate 
-6) php artisan db:seed --class=CategorySeeder
+3) take copy of .env.example to .env and configure database and credentials.
+4) **composer install**
+5) npm run && npm run build 
+6) php artisan migrate 
+7) php artisan db:seed --class=CategorySeeder
 
  OR 
 
 - Take copy of .sql from db directory in soruce code to skip 5) and 6) no steps.
 
-7) php artisan serve
+8) php artisan serve to load on Local server. 
 
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/29348817/188513664-0a8993ca-0a65-487d-a418-9eb75d1d3efe.png)
