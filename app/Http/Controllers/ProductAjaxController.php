@@ -31,7 +31,7 @@ class ProductAjaxController extends Controller
         //Listing products
         if ($request->ajax()) {
 
-            $data = Product::with('getCategory')->latest()->get();
+            $data = Product::with('getCategory')->latest()->where('user_id',Auth::user()->id)->get();
 
             return Datatables::of($data)
                     ->addIndexColumn()
@@ -100,7 +100,7 @@ class ProductAjaxController extends Controller
             $data['image'] = $image_path;
         }
 
-        //Add or Update data 
+        //Add or Update data
         Product::updateOrCreate([
             'id' => $request->product_id
         ],
