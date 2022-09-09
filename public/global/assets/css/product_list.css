@@ -58,11 +58,11 @@ a:hover {
 		transform: scale(1.2,1.2) rotate(5deg);
 }
 
-.section-products #product-1 .part-1::before {
+/* .section-products #product-1 .part-1::before {
     background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
     background-size: cover;
 		transition: all 0.3s;
-}
+} */
 
 
 
@@ -156,17 +156,17 @@ a:hover {
  .dataTables_paginate .pagination {
     display: inline-block;
   }
-  
+
  .dataTables_paginate .pagination li {
     float: left;
     text-decoration: none;
   }
-  
+
  .dataTables_paginate .pagination li.active {
     background-color: #4CAF50;
     color: white;
   }
-  
+
  .dataTables_paginate .pagination li:hover:not(.active) {background-color: #ddd;}
 
  .dataTables_wrapper .dataTables_paginate .paginate_button{
